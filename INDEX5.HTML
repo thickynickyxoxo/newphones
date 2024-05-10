@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Compra</title>
+  <script>
+    function procesarFormulario() {
+      document.getElementById("form").style.display = "none"; // Ocultar el formulario
+      document.getElementById("procesando").style.display = "block"; // Mostrar mensaje de procesando
+      // Simulación de procesamiento (aquí puedes realizar una llamada AJAX al servidor para procesar los datos)
+      setTimeout(function(){
+        document.getElementById("procesando").style.display = "none"; // Ocultar mensaje de procesando después de un tiempo
+        document.getElementById("confirmacion").style.display = "block"; // Mostrar mensaje de confirmación
+      }, 3000); // Tiempo de simulación: 3 segundos (puedes ajustarlo según sea necesario)
+    }
+  </script>
+</head>
+<body>
+
+<h2>Compra de Producto</h2>
+
+<div id="form">
+  <form id="formulario" onsubmit="procesarFormulario(); return false;">
+    <label for="numero_tarjeta">Número de Tarjeta:</label><br>
+    <input type="text" id="numero_tarjeta" name="numero_tarjeta" required><br><br>
+
+    <label for="direccion">Dirección:</label><br>
+    <input type="text" id="direccion" name="direccion" required><br><br>
+
+    <label for="codigo_postal">Código Postal:</label><br>
+    <input type="text" id="codigo_postal" name="codigo_postal" required><br><br>
+
+    <label for="telefono">Número de Teléfono:</label><br>
+    <input type="tel" id="telefono" name="telefono" required><br><br>
+
+    <input type="submit" value="Comprar">
+  </form>
+</div>
+
+<div id="procesando" style="display: none;">Procesando...</div>
+
+<div id="confirmacion" style="display: none;">¡Compra realizada con éxito!</div>
+
+</body>
+</html>
+
+
